@@ -42,3 +42,5 @@
   + mv hello_world.txt ../hello_world.txt : 파일 이동
   + rm hello_world.txt : 파일삭제 (디렉토리와는 다르게 -r 사용하지않는다)
 - ;대신 &&을 쓰면 오류시 자동화를 종료해준다
+
+[https://coqoa.tistory.com/46](https://coqoa.tistory.com/46)
