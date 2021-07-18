@@ -2,14 +2,14 @@
  
 # GIT POSIX(portable operating system interface)
 시간의 순서에 따라 명령을 내릴 수 있다
-```
+
        	  File	  |Directory
 -----------------|-----------------
 Create  editor	   |mkdir
 Read	editor,cat,ls |ls
 Update  editor,mv	 |mv
 Delete  rm	         |rm
-```
+
 ## 단축키
 -pwd : 현재나의위치 (print working directory)
 -ls : 파일목록보기
