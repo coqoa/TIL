@@ -1,4 +1,4 @@
-<center>생활코딩 POSIX CLI1 수업을 듣고 정리</center>. 
+<center>생활코딩 POSIX CLI1 수업을 듣고 정리.  </center>. 
 <center>[https://opentutorials.org/module/3747](https://opentutorials.org/module/3747)</center>
  
 # GIT POSIX(portable operating system interface)
