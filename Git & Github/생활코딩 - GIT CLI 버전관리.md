@@ -3,7 +3,7 @@
 
 # GIT CLI 버전관리
     비교를 통해 과거를 볼 수 있음
-
+    
  - git init (initialize) - 로컬 깃 저장소로 등록
  -  git status - git의 상태체크
 
@@ -16,9 +16,9 @@
 
 1. 파일생성 / 변경, WorkingTree
 2. git add, Staging Area에 올림
- > git add 파일명(확장자포함) : 파일(Working Tree의 수정사항)을 Staging Area에 올린다
+    > git add 파일명(확장자포함) : 파일(Working Tree의 수정사항)을 Staging Area에 올린다
 3. git commit, Repository등록
- >  git commit -m "커밋메시지" : Staging Area에 올려진 파일을 Repository로 커밋한다
+    >  git commit -m "커밋메시지" : Staging Area에 올려진 파일을 Repository로 커밋한다
 
 # 버전간의 차이점 비교 
  - git diff : 버전간의 차이점을 비교
@@ -33,7 +33,7 @@
  - git add 디렉토리명 : 해당 디렉토리의 모든 파일을 add 한다
  - git commit -m "커밋메시지" : 커맨드라인에서 직접 커밋메시지를 작성할 수 있다.
    - git commit 만 작성시  기본에디터를 실행하고 여러줄의 커밋메시지를 입력할 수 있다
- - git commit -am "커밋메시지" : add와 commit을 한번에 한다
+ - git commit -am "커밋메시지" : add와 commit을 한번에 한다  
     (최초한번은 add를 통해 tracked상태가 되야 가능한 방법)
  - git config --global core.editor "nano" : nano를 기본에디터로 설정
 
