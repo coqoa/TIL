@@ -25,7 +25,8 @@
 - .filename : 히든파일만들기
 - ./ : current directory
 - ../ : parent directory
--  * ( ./posix : 현재디렉토리의 posix , /posix : 최상위디렉토리 밑의 posix , .posix : posix라는 이름의 히든파일)
+
+-  ( ./posix : 현재디렉토리의 posix , /posix : 최상위디렉토리 밑의 posix , .posix : posix라는 이름의 히든파일)
 
 - cd / -> 절대경로사용 (어느위치에서나 갈 수 있는 경로) (ex. cd ./posix)
 - cd../ -> 상대경로 사용 (나의 위치에 따라 결과가 다른 경로) (ex. dc /users/coqoa/posix)
