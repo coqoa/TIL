@@ -1,5 +1,5 @@
-생활코딩 POSIX CLI1 수업을 듣고 정리
-[https://opentutorials.org/module/3747](https://opentutorials.org/module/3747) 
+#### 생활코딩 POSIX CLI1 수업을 듣고 정리  
+#### [https://opentutorials.org/module/3747](https://opentutorials.org/module/3747) 
  
 # GIT POSIX(portable operating system interface)
 시간의 순서에 따라 명령을 내릴 수 있다
