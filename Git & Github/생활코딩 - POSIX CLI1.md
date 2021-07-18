@@ -7,8 +7,8 @@
 -----------------------------------
 Create  editor	        mkdir
 Read	 editor,cat,ls 	ls
-Update  editor,mv	     mv
-Delete  rm	            rm
+Update  editor,mv	   mv
+Delete  rm	         rm
 ```
 ## 단축키
 -pwd : 현재나의위치 (print working directory)
