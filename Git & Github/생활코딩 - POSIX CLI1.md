@@ -6,7 +6,7 @@
        	  File	        Directory
 -----------------------------------
 Create  editor	        mkdir
-Read	   editor,cat,ls 	ls
+Read	  editor,cat,ls 	ls
 Update  editor,mv	     mv
 Delete  rm	            rm
 ```
