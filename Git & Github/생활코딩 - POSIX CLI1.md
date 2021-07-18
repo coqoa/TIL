@@ -32,12 +32,12 @@
 
 # File 관련 단축키
 - 생성 : nano라는 텍스트에디터 사용
--- nano hello1.txt
--- nano editor 내부에서 |^o : ctrl + O, ^x : ctrl + x|
--- cat hello1.txt
--- 읽기 : nano hello1.txt 혹은 cat hello1.txt (cat은 화면에 출력하고 끝나는 명령어다
+> nano hello1.txt
+> nano editor 내부에서 |^o : ctrl + O, ^x : ctrl + x|
+> cat hello1.txt
+> 읽기 : nano hello1.txt 혹은 cat hello1.txt (cat은 화면에 출력하고 끝나는 명령어다
 - 파일수정과 삭제
--- mv 파일이름 바꿀이름 : 이름변경 (ex. mv hello.txt hello_world.txt)
--- mv hello_world.txt ../hello_world.txt : 파일 이동
--- rm hello_world.txt : 파일삭제 (디렉토리와는 다르게 -r 사용하지않는다)
---  * ;대신 &&을 쓰면 오류시 자동화를 종료해준다
+> mv 파일이름 바꿀이름 : 이름변경 (ex. mv hello.txt hello_world.txt)
+> mv hello_world.txt ../hello_world.txt : 파일 이동
+> rm hello_world.txt : 파일삭제 (디렉토리와는 다르게 -r 사용하지않는다)
+>  * ;대신 &&을 쓰면 오류시 자동화를 종료해준다
