@@ -3,7 +3,7 @@
 # GIT POSIX(portable operating system interface)
 시간의 순서에 따라 명령을 내릴 수 있다
 
-File|Directory
+|File|Directory|
 |-----|--------|------|
 |Create|editor|mkdir|
 |Read|editor,cat,ls|ls|
