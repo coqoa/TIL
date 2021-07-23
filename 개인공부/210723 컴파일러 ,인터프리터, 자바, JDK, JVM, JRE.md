@@ -22,56 +22,54 @@
 
   2. 소스코드를 바로 인터프리터 방식으로 실행하는 방법 
 
-<그림>
-
 #### 문제점
 
-1\. 2는 1보다 간편하지만 다음과 같은 문제점이 있다.
+  1\. 2는 1보다 간편하지만 다음과 같은 문제점이 있다.
 
-    - 소스코드를 그대로 배포해야 하는 부담이 있다
+      - 소스코드를 그대로 배포해야 하는 부담이 있다
 
-    - 실행 속도가 1보다 느리다 
+      - 실행 속도가 1보다 느리다 
 
-2\. 자바의 모토 WORA (Write Once, Run Anywhere)
+  2\. 자바의 모토 WORA (Write Once, Run Anywhere)
 
-    한번 작성한 프로그램은 운영체제나 플랫폼에 상관없이 JVM이 설치된 환경이라면 동일한 실행환경을 제공
+      한번 작성한 프로그램은 운영체제나 플랫폼에 상관없이 JVM이 설치된 환경이라면 동일한 실행환경을 제공
 
-    -> 플랫폼으로부터 독립적인 프로그램을 만들 수 있다
+      -> 플랫폼으로부터 독립적인 프로그램을 만들 수 있다
 
 #### 자바는 위 두 가지 문제점을 모두 해결하기 위해 다음과 같은 순서의 방식을 사용한다
 
-    1. 소스코드를 javac로 컴파일해서 bytecode를 생성한다 (.class확장자)
+     1. 소스코드를 javac로 컴파일해서 bytecode를 생성한다 (.class확장자)
 
-    2. 생성된 bytecode를 인터프리터 방식의 JIT 컴파일러를 이용해 CPU에 맞는 머신 코드로 변환한다
+     2. 생성된 bytecode를 인터프리터 방식의 JIT 컴파일러를 이용해 CPU에 맞는 머신 코드로 변환한다
 
 **이를 통해 WORA를 지원하면서 실행 속도는 빨라지고 소스코드 배포의 부담을 덜 수 있었다.**
 
 #### JDK
 
-    java development kit
+     java development kit
 
-    개발에 필요한 툴들을 모아놓은 소프트웨어 패키지
+     개발에 필요한 툴들을 모아놓은 소프트웨어 패키지
 
-    (컴파일러, 디버거)
+     (컴파일러, 디버거)
 
 #### JVM
 
-    java virtual machine
+     java virtual machine
 
-    .class의 확장자를 가지는 byte code를 실행시키기 위한 가상머신으로 JRE가 포함된다
+     .class의 확장자를 가지는 byte code를 실행시키기 위한 가상머신으로 JRE가 포함된다
 
 #### JRE
 
-    java runtime envirnment
+     java runtime envirnment
 
-    JVM이 자바 프로그램을 동작시킬 때 필요한 파일을 가지고 있다.(JVM의 실행환경을 구현)
+     JVM이 자바 프로그램을 동작시킬 때 필요한 파일을 가지고 있다.(JVM의 실행환경을 구현)
 
-    JIT, GC, Loader, Security 등이 포함된다
+     JIT, GC, Loader, Security 등이 포함된다
 
-    **JIT** : Just-In-Time Compiler - byte code를 기계어 코드로 변환한다(별도의 JVM 스레드에서 변환을 진행한다)
+     **JIT** : Just-In-Time Compiler - byte code를 기계어 코드로 변환한다(별도의 JVM 스레드에서 변환을 진행한다)
 
-    **GC** : Garbage Collection - heap 메모리를 살펴보고 사용하지 않는 객체를 삭제한다
+     **GC** : Garbage Collection - heap 메모리를 살펴보고 사용하지 않는 객체를 삭제한다
 
-            (호출 시기는 일반적으로 JVM이 결정한다)
+              (호출 시기는 일반적으로 JVM이 결정한다)
 
-    **Loader** - JVM초기작업중 byte code 로드확인, 연결작업을 처리한다
+     **Loader** - JVM초기작업중 byte code 로드확인, 연결작업을 처리한다
