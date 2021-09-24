@@ -53,5 +53,26 @@ rgba를 통해 투명도 와 색상 값을 줄 수 있다. (rgba(255,0,0,0)) : �
 
 두번째 방 설정하기 박스정렬과 최소높이
 
-속성 : 값(inherit : 바포,
+속성 : 값(속성 : inherit = 부모의 값을 상속받는다)
+블럭 정렬 : 좌정렬 디폴트 값, 우정렬 : margin-left:auto;, 가운데 정렬 : margin-left:auto; margin-right:auto;
 
+콘텐츠 블록과 절대좌표
+
+
+FLEX
+<container>로 <item/>감싸준다 - class가 container와 item을 필요는 없다, 자식과 부모가 있어야된다 
+<container>의 속성 : display, flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content
+<item>의 속성 : order, flex-grow, flex-shrink, flex-basis, flex, align-self
+  
+컨테이너에 추가 속성
+style에 flex속성 추가
+disply:flex; 
+style에 flex속성 추가disply:flex; 
+flex-direction : row, row-reverse, column, column-reverse 중 선택해서 사용 (row : 수평방향 정렬, column : 수직방향 정렬, reverse : 컨테이너 내의 범위에서 반대방향부터 정렬
+
+아이템에 추가속성
+    flex-basis : 숫자 (기본값을 설정)
+    flex-grow : 0 or 숫자 컨테이너의 여백을 채우기(기본값 : 0, 숫자로 각각의 요소에 1/n해서 범위 할당), 특정요소에 grow값을 할당해서 범위내에서 요소들의 크기를 조절할 수 있다
+    flex-shrink : 숫자 화면이 줄어들 때 요소의 크기가 줄어드는 비율을 각각 할당 하는 속성(basis값을 가지고 있을때 줄어드는 과정)
+
+    
