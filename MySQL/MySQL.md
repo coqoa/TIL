@@ -58,7 +58,7 @@ __CREATE TABLE__ 테이블명(
  
     `ex) id INT(11) NOT NULL AUTO_INCREMENT, = 칼럼이름이 id이고 자료형은 int형이다`
 
-2. __NOT NULL__으로 값이 없는것을 허용하지않는다
+2. __NOT NULL__ 으로 값이 없는것을 허용하지않는다
 
 3. 각 id값을 다르게 하기 위해서 자동으로 증가해서 추가되도록 하는 __AUTO_INCREMENT__(자동증가 1)를 사용한다.  
    식별자가 중복되지않도록  
