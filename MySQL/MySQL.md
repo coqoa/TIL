@@ -84,7 +84,7 @@ SQL의 INSERT 구문 (row추가하기)
 
 __1.SQL INSERT 구문__
 
-INSERT INTO 테이블명 (필드선택) VALUES('값');
+INSERT INTO 테이블명 (필드선택) VALUES('값');  
 여러개를 하려면 콤마를 통해 구문
 
 `ex) INSERT INTO 테이블명 (필드1,필드2,필드3,시간1) VALUES('필드1의값','필드2의값','필드3의값',NOW());`
