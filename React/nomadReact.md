@@ -89,3 +89,112 @@ function data({propsKey}){
 
 const MemorizedBtn = React.memo(Btn)
 ```
+---
+
+### PropTypes
+
+- prop의 타입을 지정할 수 있다 (코드상으론 에러가 아니지만 알맞지 않은 타입을 통해 로직이 꼬이는것을 방지)  
+- 작성법
+```javascript
+Btn.PropTypes = {
+	text : PropTypes.string
+	fontSize : PropTypes.number
+}
+// 필수로 포함할 prop이면 .isRequired를  추가한다
+```
+
+### CRA (create-react-app)
+- React 개발 편의성을 높여준다 (서버접근, 자동완성, css포함, 자동재실행, 경고메시지 발신 등등)
+- npm으로 설치한다 (npm create-react-app)
+---
+1. src폴더에서 App.js, index.js빼고 모두 삭제  
+2. index.js에서 작성되어 있는 3개의 import, ReactDOM.render빼고 모두 삭제  
+3. App.js에서 function App내부(return내부에 `<div></div>`만 남기고 삭제)  
+=>  사용하기 위해서 필요없는것들을 모두 정리해준다
+---
+- npm start : 실행
+
+
+#### 컴포넌트 만들기
+1. Button.js파일 만들어서 컴포넌트를 만들고 export해준다
+```javascript
+function Button({text}){
+	return <button>{text}</button>;
+}
+export default Button
+```
+
+2. App.js에서 import
+```javascript
+import Button from "./Button"
+```
+2-1 사용할때는 ```<Button />```
+
+#### propTypes설치 
+1. npm prop-types
+2. Button.js에 prop-types import
+```javascript
+import PropTypes from "prop-types"
+```
+3. 사용
+```javascript
+Button.propTypes = {
+	text: PropTypes.string.isRequired
+}
+```
+
+#### 특정 컴포넌트를 위한 css파일 생성
+세가지 방법이 있다
+1. css파일 만들기 : 전역적인 css스타일을 사용해야함
+```javascript
+	//index.js
+    import "./style.css"
+```
+2. inline형태로 삽입하기  
+   prop을 inline형태로 추가 : css의 장점이 사라짐
+   
+3. module.css 파일 만들기  : 위 두방법의 단점을 보완하면서도 장점이 있기 때문에 사용한다  
+ -  Button.module.css파일 생성  
+```css
+/* Button.module.css 파일 생성 */
+.btn{
+	/*css내용*/
+}
+```   
+- Button.js에 import (button에 className을 직접 지정하지 않고 styles.btn으로 사용)
+```javascript
+import styles from "./Button.module.css"
+<button className = {styles.btn}>Button</button>  
+```
+
+=> 기존에는 html에서 식별자를 정하고 css를 바인딩해서 style을 꾸몄고 지금방법은 css의 이름을 html에 연결하는 식이다  
+   이로인해 className은 랜덤한 값을 가지게 되었고 이는 다른 클래스 이름들을 사용하기 위해 기억하고 있는것 보다 효율적이다  
+   why?  
+   styles라는 이름으로 import하면 각 파일마다 styles.title을 사용해도 중복되지 않기 때문, 이름을 짓는데서 오는 어려움이 줄어듬,  
+   소스코드에선 같은 코드라도 html에서는 각기 랜덤한 값을 받으므로 독립적으로 사용 가능
+
+`+`CRA를 쓰면 더이상 `Reacr.`을 사용하지 않아도 된다 ( React.useState() => useState() )
+
+### useEffect
+- 언제 코드를 실행할 지 선택권을 가질 수 있는 코드
+- 컴포넌트가 처음 실행될 때만 render 되는 것을 원할 수 있다 (ex. API를 통해 데이터를 가져올 경우 첫번째 컴퓨넌트 render에서 API를 콜하면 두번쨰부터는 가져올 필요가 없다)
+- 하지만 React에서는 state가 변하면 rendering이 되고 이럴경우 useEffect를 사용하면 언제 코드를 얼마나 발생시킬지 선택권을 가질 수 있다
+
+#### useEffect는 두가지 argument를 가지는 function이다
+- 첫번째 argument는 실행하고 싶은 코드
+- 두번째 argument는 특정 코드가 변경되면 첫번 째 argument를 실행하기 위한 dependency코드
+- useEffect(실행할 코드, [dependency코드]
+```
+	useEffect(() => {
+    	console.log('once')
+    }, []);
+```
+#### dependency코드
+- Array가 변할 때 useEffect의 첫번째 argument를 실행하는것이다
+- []가 빈값이면 바라보는게 없으므로 최초 실행시 단 한번만 실행된다
+- deps코드에는 여러가지 값이 들어갈 수 있다
+
+
+### useEffect - CleanUp( )
+- component가 destroy될 때 실행되는 코드다
+- useEffect의 첫번째 argument return에 함수를 바인딩하면 된다 (= CleanUp function)
