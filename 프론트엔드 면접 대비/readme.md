@@ -172,6 +172,25 @@
 
 ---
 
+### 10-1. EventLoop - MacroTaskQueue & MicroTaskQueue
+<details>
+<summary></summary>  
+
+이벤트 루프는 콜 스택과 태스크큐를 감시하다가 콜스택이 비어있을 경우에  
+태스크큐의 태스크를 가져와서 콜스택에 넣어 처리하도록 해주는 기능을 한다  
+태스크큐는 구체적으로 매크로태스크큐와 마이크로태스크큐로 나뉘는데  
+이는 어떤 함수를 실행하냐에 따라 달라진다  
+콜백함수를 매크로태스크큐에 넣는 대표적인 함수는 setInterval이 있고,   
+마이크로태스크큐에 넣는 대표적인 함수는 Promise가 있다  
+이벤트 루프는 마이크로태스크를 먼저 처리하고 매크로태스크를 처리한다  
+만약 이벤트 루프를 막을 우려가 있는 무거운 연산은 WebWorker를 통해 처리하도록 한다  
+  
+[Web Worker 사용경험](https://coqoa.tistory.com/118)  
+	
+</details>
+
+---
+
 ### 11. Execution Context - 실행 문맥
   <details>  
   <summary></summary>
