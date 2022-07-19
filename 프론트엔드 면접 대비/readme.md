@@ -156,6 +156,26 @@ addEventListener의 `capture`를 `true`로 변경하면 사용할 수 있다
 
 ---
 
+### 3. SPA와 SSR
+  <details>  
+  <summary></summary>
+  
+<b>SPA</b>는 Single Page Application의 약자로 `Client Side Rendering 방식`을 사용한다  
+클라이언트 사이드 렌더링은 서버로부터 빈 뼈대 HTML파일을 받은 뒤 자바스크립트 코드를 통해  
+동적으로 DOM을 생성하고 렌더링한다  
+클라이언트에서 작업을 처리하기 때문에 `서버의 부담이 줄어들`고, `깜빡임이 없어져` 사용자 경험이 좋아지고,  
+새로운 요청이 있으면 `변경해야할 부분만 갱신`하기 때문에 구동속도가 빨라지고 `TTV와 TTI의 간극이 없다`는 장점이 있지만. 
+`초기 로딩`이 오래걸리고 `검색엔진최적화`에 좋지 않다는 단점이 있다  
+
+<b>SSR</b>은 Server Side Rendering의 줄임말로 `Multi Page Application`의 렌더링 방식이다  
+`초기 로딩`이 빠르고 `검색 엔진 최적화`에 유리하지만  
+`깜빡임 이슈`가 있고 `서버 과부하`가 될 수 있으며 HTML렌더를 통해 View는 가능하지만  
+자바스크립트 로직을 연결해야 Interaction이 가능하기 때문에 `TTV와 TTI간에 공백기간`이 존재한다는 단점이 있다  
+  
+  </details>
+
+---
+
 ### 10. 자바스크립트의 동작 원리
   <details>  
   <summary></summary>
