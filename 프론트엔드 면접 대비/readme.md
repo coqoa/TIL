@@ -524,6 +524,51 @@ function키워드 대신 화살표를 사용해서 보다 간략한 방법으로
 </details>
 
 ---
+---
+---
+## 리액트 관련 질문
+
+### 24. React ?
+<details>
+<summary></summary>
+
+리액트는 Single Page Application의 UI를 생성하는데 집중한 자바스크립트 라이브러리이다  
+1. Single Page Application의 특징을 가짐
+2. JSX를 사용  
+3. 단방향 데이터바인딩 지원  
+4. 가상 DOM을 이용한 퍼포먼스 최적화  
+5. 컴포넌트 기반 프로그래밍 등의 특징이 있다
+6. 리액트네이티브를 익히면 웹과 앱 모두 대응이 가능하다
+
+</details>
+
+---
+### 25. SPA & MPA / CSR & SSR
+<details>
+<summary></summary>
+
+<b>SPA</b>는 Single Page Application의 약자로 <b>CSR</b> (Client Side Rendering)방식으로 렌더링한다.  
+Client Side Rendering은 서버로부터 빈 뼈대 HTML파일을 받은 뒤 `<script>`태그에 정의된 자바스크립트 코드를 통해  
+동적으로 DOM을 생성하고 렌더링한다  
+클라이언트에서 작업을 처리하기 때문에 `서버의 부담`이 줄어들고,  
+`깜빡임 이슈`가 없어 사용자 경험이 좋아지고,  
+새로운 요청이 있으면 `변경해야할 부분만 갱신`하기 때문에 구동속도가 빨라지고,  
+자바스크립트를 통해 동적으로 DOM을 생성하기 때문에 TTV와 TTI의 간극이 없다는 <b>장점</b>이 있지만  
+리소스를 한번에 받기 때문에 초기 구동이 오래걸리고,  
+검색 엔진 최적화`(SEO - Search Engine Optimization)`에 좋지 않다는 <b>단점</b>이 있다
+
+<b>MPA</b>는 Multi Page Application의 약자로 <b>SSR</b> (Server Side Rendering)방식으로 렌더링한다.  
+SSR은 전통적인 웹의 형태인데  
+초기 로딩이 빠르고 검색 엔진 최적화에 유리하다는 <b>장점</b>이 있지만  
+깜빡임 이슈가 있고,  
+서버측에서 연산을 수행하기 때문에 서버 과부하가 될 수 있으며,  
+HTML렌더를 통해 View는 가능하지만 자바스크립트 로직을 연결해야 Interaction이 가능하기 때문에  
+TTV와 TTI간에 공백기간이 존재한다는 <b>단점</b>이 있다  
+
+</details>
+
+---
+
 	
 ### 24. Virtual DOM
 	
@@ -560,5 +605,6 @@ state값을 넣은 배열은 해당 state가 변경될 때 마다 실행한다
 </details>
 
 ---
+
 	
 	
