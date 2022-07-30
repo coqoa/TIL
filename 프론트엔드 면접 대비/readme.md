@@ -622,6 +622,20 @@ state값이 담긴 배열을 넣으면 해당 state값이 변경될 때마다 �
 </details>
 
 ---
+---
+26. position
 
+<details>
+<summary></summary>
+
+position은 HTML문서 상에서 요소가 배치되는 방식을 결정한다. 
+static을 제외하고는 top, bottom, left, right로 위치를 변경할 수 있다
+- static : 기본값으로 요소를 나열한 순서 그대로 브라우저 화면에 표시한다, top,botto,left,right 사용 불가
+- relative : static이었을때 배치되는 위치를 기준으로 상대적 위치를 지정할 수 있다
+- absolute : 문서의 흐름과 상관없이 배치한다, static이 아닌 상위요소를 기준으로 배치
+- fixed : 문서의 흐름과 상관없이 위치를 좌표로 결정한다, 기준은 relative인 가장 가까운 부모 혹은 브라우저창
+- sticky : 위치에 따라 다른 동작을 함, 기준점 이전에는 relative와 같이 동작하고 그 이후에는 fixed처럼 동작한다
+
+</details>
 	
 	
