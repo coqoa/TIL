@@ -15,7 +15,7 @@ dynamic은 타입 변경이 가능하다
 
 - 식별자 : 변수, 함수 등의 이름
   - 내장 식별자  
-	- abstract [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md)
+	- abstract [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md){: target="_blank"}
 	- as
 	- convariant
 	- deferred
@@ -24,7 +24,7 @@ dynamic은 타입 변경이 가능하다
 	- external
 	- factory
 	- get
-	- implements [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md)
+	- implements [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md){: target="_blank"}
 	- import
 	- interface
 	- library
@@ -50,7 +50,7 @@ dynamic은 타입 변경이 가능하다
   - do
   - else
   - enum
-  - extends [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md)
+  - extends [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md){: target="_blank"}
   - false
   - final
   - finally
@@ -84,7 +84,7 @@ dynamic은 타입 변경이 가능하다
 - List : 배열
 - Set : 순서가 없고 중복이 없는 collection
 - Map : key-value 형태의 collection
-- Class [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md)
+- Class [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md){: target="_blank"} 
 ### 변수
 기본 형태  
 ```dart
