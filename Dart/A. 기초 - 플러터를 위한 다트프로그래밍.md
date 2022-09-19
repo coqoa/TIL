@@ -15,7 +15,7 @@ dynamic은 타입 변경이 가능하다
 
 - 식별자 : 변수, 함수 등의 이름
   - 내장 식별자  
-	- abstract [링크](https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md){: target="_blank"}
+	- abstract [링크]:https://github.com/coqoa/TIL/blob/main/Dart/B.%20%EC%8B%AC%ED%99%94%20-%2001.%20%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%2C%20%EC%83%81%EC%86%8D(extends%2C%20implements).md
 	- as
 	- convariant
 	- deferred
