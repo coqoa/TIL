@@ -225,6 +225,92 @@ main(){
 `is` : 객체가 특정 타입이면 true  
 `is!` : 객체가 특정타입이면 false(특정 타입이 아니면 true)
 
+##### 6. 조건 표현식
+- 삼항 연산자  
+: `조건 ? 표현식 1 : 표현식 2`   
+조건이 true면 표현식 1 false면 표현식 2 실행  
+
+- 조건적 멤버 접근 연산자  
+: `좌항?.우항`  
+좌항이 null이면 null을 리턴, 아니면 우항의 값을 리턴  
+
+- ?? 연산자  
+: `좌항 ?? 우항`  
+좌항이 null이 아니면 좌항 값을 리턴, null이면 우항 값을 리턴
+
+##### 7. 캐스케이트 표기법
+: 한 객체로 해당 객체의 속성이나 멤버 함수를 연속적으로 호출할 때 유용하다
+```dart
+class Employee{
+  String name = '';
+  int? age;
+  
+  void setAge(int age){
+    this.age = age;
+  }
+  void showInfo(){
+    print('$name is $age old');
+  }
+}
+
+main(){
+	Employee employee = Employee()
+  	// 캐스케이드 표현식 사용  
+    ..name = '최병민'
+    ..setAge(32)
+    ..showInfo();
+  
+  // 캐스케이드 표현식 미사용
+  //   employee.name = '최병민';
+  //   employee.setAge(32);
+  //   employee.showInfo();
+  
+ 
+  // 출력 : 최병민 is 32 old
+}
+```
+
+
+
+## 접근 지정자
+접근 지정자를 이용해서 캡슐화 할 수 있고 이를 통해 데이터 은닉을 구현할 수 있다.
+- public : 아무런 키워드가 없으면 public
+- private : 변수나 메서드 앞에 언더바(_)가 잇으면 private
+```dart
+//person.dart
+class Person{
+  String name;
+  int _age;
+  eat(){
+  	print('eat');
+  }
+  _sleep(){
+  	print('zzZ);
+  }
+}
+```
+- person.dart의 private으로 선언된 멤버변수 _age와 메서드 _sleep은  
+외부 파일인 main.dart에서 접근할 수 없다
+- 이를 해결하기 위해 <b>getter</b>와 <b>setter</b>가 필요하다
+
+### Getter & Setter
+- Private 키워드를 통해 정보 은닉을 구현했다면 해당 데이터에 접근할 수 있는 권한을 가진 메서드를 public으로 선언해서 은닉된 데이터에 직접적으로 접근하는 것을 막을 수 있다
+- Getter는 데이터의 값을 가져오는 역할을 하고,  
+- Setter는 값을 수정하는 역할을 한다
+- 이들을 Dart에서는 get / set 키워드를 통해 사용한다
+```dart
+class Person{
+  String? _name;
+  String? get getName => _name;
+  set setName(String name) => _name = name;
+}
+
+main(){
+  Person p = Person();
+  p.setName = "CHOI";
+  print(p.getName);
+}
+```
 
 
 
