@@ -1,223 +1,79 @@
+## Collection : List Set Map
+- collection : 다수의 데이터를 처리할 수 있는 자료구조
 ### List 
-- index를 가지는 리스트 데이터 컬렉션  
-  ```dart
-  List<String> alphabet = ['a','b','c','d'];  
-  List<int> number = [1,2,3,4];  
-  ```
+- 데이터 순서가 있고 중복을 허용한다.
+- 인덱스로 데이터에 접근할 수 있다
+```dart
+// List<타입> 변수명 = [데이터1, 데이터2,...,데이터n];
+List<String> alphabet = ['a','b','c','d'];  
+List<int> number = [1,2,3,4];  
 
-- index로 접근 가능  
-  ```dart
-  print(alphabet[0]); // a
-  print(alphabet[1]); // b
-  print(alphabet[2]); // c
-  print(alphabet[3]); // d
-  print(number[0]); // 1
-  print(number[1]); // 2
-  print(number[2]); // 3
-  print(number[3]); // 4
-  ```
+print(alphabet[0]); // a
+print(alphabet[1]); // b
+print(alphabet[2]); // c
+print(alphabet[3]); // d
+print(number[0]); // 1
+print(number[1]); // 2
+print(number[2]); // 3
+print(number[3]); // 4
+```
+- Method
+	- .add(데이터)
+	- .addAll([데이터1, 데이터2, ...])
+	- .remove(요소)
+	- .removeAt(인덱스)
+	- .contains(요소)
+	- .clear()
+	- .sort()
+	- .first
+	- .last
+	- .reversed
+	- .isNotEmpty
+	- .isEmpty
+	- .single
+	- .indexOf 
+	- .length  
+	등등
+### Set
+- 중복을 허용하지 않는다,   
+중복을 허용하지 않기 때문에 같은 값을 여러번 넣어도 단 하나만 존재한다.
+- 데이터 순서가 없다,  
+순서가 없기 때문에 index로 접근하지 못하고 for ..in문을 통해 접근이 가능하다
+- for..in문은 in 뒤에 선언된 객체에서 하나의 요소를 가져와 in 앞에 선언된 변수에 할당한다
+- List에서 사용하는 메서드중 index를 사용하는 메서드는 Set에서 사용하지 못한다
+	- .indexOf()
+	- .removeAt()
+	- .sort()
+	- .reversed()   
+	등등
+```dart
+Set<타입> 변수명 = {데이터1, 데이터2,... 데이터n}
+```
 
-  - .length : 길이를 반환
-  - .add(value) : 데이터 추가
-  - .addAll() : 다수의 데이터 추가
-  - .removeAt([]) : 단일 데이터 삭제
-  - .clear() : 데이터 전체 삭제
-  - .refresh() : 새로고침
-  - .indexOf(value) : 데이터 위치 찾기
+### Map
+- key-value 형태로 구성된 컬렉션으로 키는 중복되지 않고 값은 중복이 가능하다
+- key와 value가 매칭되어 빠른 탐색이 가능하다
+- 순서를 가리지 않지만 key값을 정수로 할당하면 순서를 가진것처럼 활용도 가능하다
+- 키는 중복이 불가능하고 값은 중복이 가능하다
+```dart
+Map<String, dynamic> mapExam = {
+  'key1': 'pomotodo.kr',
+  'key2': 'Blue',
+  'key3': 'Green',
+  'key4': 'Orange'
+};
 
----
-
-#### Map
-- key-value형식의 데이터 컬렉션
-  ```dart
-  Map<String, dynamic> age = {
-    // Key:    Value
-    'choi': 32,
-    'kim': 27,
-    'park': 54
-  };
-  print(age);
-  ```
-
-- key값으로 value값에 접근 가능
-  ```dart
-  데이터 출력하기
-  print(age["choi"]);
-  데이터 추가하기
-  age['lee'] = 42;
-  print(age);
-  ```
-
-- 연습예제
-  ```dart
-  Map<String, dynamic> james = {
-      'name': 'James',
-      'Height': 186.5,
-      'Weight': 78.1,
-      'age': 43,
-      'favorite color': ['red','orange', 'green'],
-      'family': { 'wife': 'Lily',
-                  'son': 'Harry',
-                  'daugther': 'Marry'},
-  };​
-  // orange 를 출력하려면?
-  print(james['favorite color'][1]);
-  // Harry 를 가져오려면?
-  print(james['family']['son']);
-  ```
-
----
-
-### Class
-- 변수나 메소드를 정의해놓은 코드 모음이다  
-- 클래스를 통해 객체를 만들 수 있다  
-- constructor와 this키워드를 통해 인자가 적용된 객체를 생성할 수 있다  
-
-- 클래스 선언
-  ```dart
-  class Human {
-      String name;
-      int age;
-      int height;
-
-      Human(this.name, this.hp, this.mp)
-
-      void eat() {
-          print('Yummy!!');
-      }
-      void sleep() {
-          print('zzZ..');
-      }
-  }
-  ```
-  - 객체 생성
-  ```dart
-  Human me = Human('COQOA', 32, 170)
-  ```
-
-- 객체 내부 데이터는 .을 통해 접근할 수 있다
-  ```dart
-  print(me.name); //'COQOA'
-  print(me.age); // 32
-  print(me.height); // 170
-  print(me.eat()); // yummy!!
-  print(me.sleep()); // zzZ..
-  ```
-
-#### 추상클래스
-- 추상 메소드를 가질 수 있는 클래스 (= 미완성 클래스)  
-- 객체를 생성할 수 없지만 참조형 변수의 타입으로 사용가능하다  
-- 추상클래스는 Implements 키워드를 통해 상속할 수 있고 하나의 클래스에 여러개를 상속할 수 있으며 내부에 선언된 변수나 메소드를 override해서 사용해야한다.  
-  ```dart
-  abstract class Person{
-      eat()
-  }
-  class Male implements Person{
-      @override
-      eat();
-  }
-  main(){
-      Person person1 = Person();
-      Person person2 = Male();
-  } // 정상작동
-  ```
-
----  
-
-### 심화 - JSON 데이터 출력하기 
-
-- 가상의 url은 다음과 같은 형태로 되어있다고 가정한다
-  ```dart
-  {
-      "code": "200",
-      "message": "success",
-      "result": [
-          {
-              "name": 'COQOA',
-              "age" : 32
-              "height" : 170
-          },
-          {
-              "name": 'Tom',
-              "age" : 44
-              "height" : 187
-          },
-          {
-              "name": 'Leo',
-              "age" : 37
-              "height" : 175
-          },
-       ]
-  }
-  ```
-
-1. 추상클래스 RepositoryAB 생성  
-    ```dart
-    // repository_ab.dart
-    abstract class RepositoryAB {
-      Future<Map<String, dynamic>> getPerson();
-    }
-    ```
-
-2. repositoryAB를 상속받는 Repository 클래스 생성
-    ```dart
-    // repository.dart
-    import 'package:dio/dio.dart';
-
-    class Repository implements RepositoryAB{
-        @override
-        Future<Map<String, dynamic>> getPerson() async {
-            Response response = await Dio().get(url);
-            Map<String, dynamic> result = response.data;
-            return result;
-      }
-    }
-    ```
-
-3. 객체 Model 생성
-    ```dart
-    // object_model.dart
-    class Model {
-      String? name;
-      int? age;
-      int? height;
-
-      // JSON 직렬화
-      Model.fromJson(Map<String, dynamic> data){
-        this.name = data["id"];
-        this.name = data["age"];
-        this.name = data["height"];
-      }
-    }
-    ```
-
-4. 컨트롤러 생성
-    ```dart
-    // controller.dart
-    import 'package:get/get.dart';
-
-    class Controller extends GetxController {
-        final Repository _repo = Repository();
-
-        RxList list = [].obs;
-
-        Future<void> getList() async {
-        Map<String, dynamic> response = await _repo.getPerson();
-        List result = response["result"];
-
-        // forEach
-        result?.forEach((element) {
-          Model model = Model.fromJson(element);
-          list.add(model);
-        }
-      }
-    }
-    ```
-
-5. main.dart에서 getList() 호출
-    ```dart
-    final Controller controller = Controller();
-    controller.getList();
-    ```
-#### 결과
-getList()를 통해서 JSON의 데이터를 가공해서 사용할 수 있는 list를 받을 수 있다
+void main(){
+  print(mapExam['key1']); /* 탐색 */ 
+  
+  print(mapExam['key5']); // null
+  mapExam['key5'] = "Navy"; /* 추가 */
+  print(mapExam['key5']); // Navy
+  
+  print(mapExam['key4']); // Orange
+  mapExam['key4'] = 'White'; /* 수정 */
+  print(mapExam['key4']); // White
+  mapExam.update('key4', (value)=>'RED'); /* 수정 */
+  print(mapExam['key4']); // RED
+}
+```
