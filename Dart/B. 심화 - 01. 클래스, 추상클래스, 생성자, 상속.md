@@ -281,40 +281,101 @@ void main(){
 }
 ```
 
-## 심화 : 추상클래스를 통해 Repository만들기
-```dart
-// repository_ab.dart
-abstract class RepositoryAB {
-  Future<Map<String,dynamic>?> getJson();
-}
-```
+## 심화 : 추상클래스를 통해 Repository만들고 JSON 데이터 출력하기
 
-```dart
-// repository.dart
-import 'package:dio/dio.dart';
-import 'package:first_test_click/repositories/repository_ab.dart';
-
-class Repository implements RepositoryAb{
-  @override
-  Future<Map<String, dynamic>> getJson() async {
-    var response = await Dio().get('url');
-    Map<String, dynamic> result = response.data;
-    return result;
+- 가상의 url은 다음과 같은 형태로 되어있다고 가정한다
+  ```dart
+  {
+      "code": "200",
+      "message": "success",
+      "result": [
+          {
+              "name": 'COQOA',
+              "age" : 32
+              "height" : 170
+          },
+          {
+              "name": 'Tom',
+              "age" : 44
+              "height" : 187
+          },
+          {
+              "name": 'Leo',
+              "age" : 37
+              "height" : 175
+          },
+       ]
   }
-}
-```
+  ```
 
-```dart
-// controller.dart
-import 'package:get/get.dart';
-import 'package:kees/screen/alarm/repository/repository.dart';
-
-class Controller extends GetxController{
-  final Repository _repo = Repository();
-    Future<void> getList() async {
-       Map<String,dynamic>? response = await _repo.getJson(); 
-       // response를 이용해서 데이터 가공 및 출력
+1. 추상클래스 RepositoryAB 생성  
+    ```dart
+    // repository_ab.dart
+    abstract class RepositoryAB {
+      Future<Map<String, dynamic>> getPerson();
     }
-}
-```
+    ```
+
+2. repositoryAB를 상속받는 Repository 클래스 생성
+    ```dart
+    // repository.dart
+    import 'package:dio/dio.dart';
+
+    class Repository implements RepositoryAB{
+        @override
+        Future<Map<String, dynamic>> getPerson() async {
+            Response response = await Dio().get(url);
+            Map<String, dynamic> result = response.data;
+            return result;
+      }
+    }
+    ```
+
+3. 객체 Model 생성
+    ```dart
+    // object_model.dart
+    class Model {
+      String? name;
+      int? age;
+      int? height;
+
+      // JSON 직렬화
+      Model.fromJson(Map<String, dynamic> data){
+        this.name = data["id"];
+        this.name = data["age"];
+        this.name = data["height"];
+      }
+    }
+    ```
+
+4. 컨트롤러 생성
+    ```dart
+    // controller.dart
+    import 'package:get/get.dart';
+
+    class Controller extends GetxController {
+        final Repository _repo = Repository();
+
+        RxList list = [].obs;
+
+        Future<void> getList() async {
+        Map<String, dynamic> response = await _repo.getPerson();
+        List result = response["result"];
+
+        // forEach
+        result?.forEach((element) {
+          Model model = Model.fromJson(element);
+          list.add(model);
+        }
+      }
+    }
+    ```
+
+5. main.dart에서 getList() 호출
+    ```dart
+    final Controller controller = Controller();
+    controller.getList();
+    ```
+#### 결과
+getList()를 통해서 JSON의 데이터를 가공해서 사용할 수 있는 list를 받을 수 있다
 
