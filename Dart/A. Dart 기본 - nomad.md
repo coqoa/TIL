@@ -75,3 +75,76 @@ if(name != null){
 // 혹은 조건 처리 방법 2 
 name?.isNotEmpty;
 ```
+
+## 2. DATA TYPES
+- Basic Data Types
+	- Dart의 모든것은 클래스다
+	- 이러한 이유 때문에 변수명. 을 통해 내부 메소드를 사용할 수 있다
+		```dart
+		void main (){
+			String name = '나병민'; // String 클래스 
+			bool alive = true; // bool 클래스 
+			int age = 32; // int 클래스 
+			double height = 170.0; // double 클래스 
+			num x = 12; // int와 double의 부모 클래스 
+			x=1.1; 
+		}
+		```
+- List
+	- collection if 와 collection for를 지원함
+		```dart
+		void main(){
+		// 선언 방법 1 
+		var numbers = [1,2,3,4,]; 
+		numbers.add(5) 
+
+		// 선언 방법 2 
+		List<int> numbers2 = [1,2,3,4,]; 
+		numbers2.add(5); 
+
+		// collection if : List 생성시 조건에 따라 element 추가 가능 
+		var giveMeFive = true; 
+		var numbers3 = [1,2,3,4,if(giveMeFive) 5,];
+		// = if(giveMeFive){number.add(5)} 
+
+		// Collection For 
+		var oldFriends = ['병민','형준']; 
+		var newFriends = ['Paul','Tom', for(var friend in oldFriends) "😃" $friend ]; 
+		// [Paul, Tom, 😃 병민, 😃 형준] }
+		```
+- Set
+	- List와 달리 모든 아이템들이 유니크함(같은 아이템을 추가할 수 없음)
+		```dart
+		void main() { 
+			// 선언 방법 
+			Set<int> numbers = {1,2,3,4}; 
+			numbers.add(1); 
+			numbers.add(1); 
+			numbers.add(1); 
+			numbers.add(1); 
+			print(numbers); // {1,2,3,4} 
+		}
+		```
+- Map
+	- JS, TS의 object 역할
+	- Map의 key와 value는 사용자에 의해 정해짐, 일반적으로는 <String, dynamic>의 형태로 사용함
+		```dart
+		void main(){ 
+			var player = {'name': '나병민', 'xp': 19.99, 'superpower': false,}; 
+			// player.Map메소드 사용 가능 
+			print(player.length); // 3 
+			print(player.isEmpty); // false 
+			player.clear(); 
+			print(player.length); // 0 
+			print(player.isEmpty); //true 
+
+			// List<Map>예시 
+			List<Map<String, dynamic>> players = [
+				{ 'name': '나병민', 'age' : 32, 'height' : 170.5, } 
+			]; 
+			print(players[0]); // {name: 나병민, age: 32, height: 170.5} 
+			print(players[0]['name']); // 나병민 
+			print(players[0]['age']); // 32 
+			print(players[0]['height']); // 170.5 
+		}
+		```
