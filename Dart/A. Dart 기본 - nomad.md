@@ -1,11 +1,7 @@
 # Dart
-
-#### Dart의 모든 메소드는 끝에 세미콜론(;)을 붙여줘야한다
-
-## 0. main()
-- Dart 프로그램의 Entry point - 코드를 호출하는 함수  
-
-
+## main()
+- Dart 프로그램의 Entry point - 코드를 호출하는 함수
+#### + Dart의 모든 메소드는 끝에 세미콜론(;)을 붙여줘야한다
 
 ## 1. Keyword
 ### 1-1. variables
@@ -90,7 +86,7 @@ name?.isNotEmpty;
 			x=1.1; 
 		}
 		```
-- List
+- Lists
 	- collection if 와 collection for를 지원함
 		```dart
 		void main(){
@@ -148,3 +144,150 @@ name?.isNotEmpty;
 			print(players[0]['height']); // 170.5 
 		}
 		```
+
+
+## 3. 데이터 바인딩
+- String Interpolation
+	- text에 변수를 추가하는 방법
+	- ‘’ `$변수`"형태로 작성, 띄어쓰기가 들어가거나 계산을 실행하려면 ‘`${변수}`’형태로 작성
+		```dart
+		void sayHello1(String name){
+			print("Hello $name nice to meet you"); 
+		}
+		String sayHello2(String name){
+			return "Hello $name nice to meet you"; 
+		} 
+		// 위와 같음 
+		String sayHello3(String name) => "Hello $name nice to meet you"; 
+
+		void main(){ 
+			sayHello1('나병민1'); // 출력 : Hello 나병민1 nice to meet you 
+			String greetings = sayHello2('나병민2'); // 할당 
+			print(greetings); // 출력 : Hello 나병민2 nice to meet you 
+		}
+		```
+
+## 4. FUNCTIONS
+- Defining a Function
+	- void : 아무것도 return하지 않음
+	- String을 return 하려면 함수 내부에 return을 작성해야함
+      ```dart
+      void sayHello1(String name){
+          print("Hello $name nice to meet you");
+      }
+      String sayHello2(String name){
+          return "Hello $name nice to meet you";
+      }
+      // 위와 같음
+      String sayHello3(String name) => "Hello $name nice to meet you";
+
+
+      void main(){
+          sayHello1('나병민1'); // 출력 : Hello 나병민1 nice to meet you
+          String greetings = sayHello2('나병민2'); // 할당
+          print(greetings); // 출력 : Hello 나병민2 nice to meet you
+      }
+      ```
+
+- Positional Parameters & Named Parameters - 중괄호 {}
+	```dart
+	// Positional Parameters
+	String sayHello(
+		String name, 
+		int age, 
+		String country
+	){
+		return "Hello $name, you are $age, and you come from $country";
+	}
+	void main(){
+		print(sayHello('나병민', 19, 'Seoul'));
+	}
+
+	// 사용자가 순서를 잊어버릴 수 있기 때문에 적절한 사용법이 아님
+	// ⬇︎⬇︎ 그래서 네임드 파라미터를 사용함 
+
+	// Named Parameters
+	// 1. 파라미터를 중괄호로 감싸준다
+	// 2. 파라미터에 default value를 정해주거나, required 를 붙여서 null safety를 적용한다
+	String sayHello({
+		required String name, 
+		required int age, 
+		required String country
+	}){
+		return "Hello $name, you are $age, and you come from $country";
+	}
+	void main(){
+		print(sayHello(
+			name : '나병민', 
+			age : 19, 
+			country : 'Seoul'
+		));
+	}
+
+	```
+- Optional Positional Parameters - [] 대괄호
+
+	```dart
+	String sayHello(
+		required String name, 
+		required int age, 
+		[
+			// Optional Parameters (기본값 지정1, 기본값 미지정1)
+			String? hometown = 'ULSAN', 
+			String? country
+		]
+	){
+		return "Hello $name, you are $age, and you come from $hometown";
+	}
+
+	void main(){
+		var result = sayHello(name : '나병민', age : 32, );
+		print(result) // "Hello 나병민, you are 32, and you come from ULASN";
+	}
+	```
+- Operator `??` , `?=`
+  -  `??` : ??를 기준으로 좌항이 null이면 우항을 return한다
+  -  `??=` : ??=를 기준으로 좌항이 null이라면 우측의 값을 할당한다
+		```dart
+		String capitalizeName(String name) => name.toUpperCase();
+
+		void main(){
+			print(capitalizeName('coqoa')); // COQOA
+
+			// 사용자가 null도 입력할 수 있었으면 좋겠다
+
+			String capitalizeName1(String? name) => 
+				name != null ? name.toUpperCase() : 'coqoa';
+
+			print(capitalizeName1(null)); // coqoa
+			print(capitalizeName1('choibm0208')); // CHOIBM0208
+
+			// 더 짧게 가능함 `??`
+			String capitalizeName2(String? name) => 
+				name?.toUpperCase()?? 'coqoa';
+
+			print(capitalizeName2(null)); // coqoa
+			print(capitalizeName2('choibm0208')); // CHOIBM0208
+		}
+		```
+- Typedef 
+  - 자료형이 헷갈릴 때 도움이 될 alias를 만드는 방법  
+	```dart  
+	typedef ListOfInts = List<int>;
+
+	List<int> reverseListOfNumbers(ListOfInts list){
+		var reverserd = list.reversed;
+		return reversed.toList();
+	}
+
+	void main(){
+		reverseListOfNumbers([1,2,3]);
+	}
+	```
+
+--- 23.03.30
+
+## 5. CLASSES
+
+
+	
