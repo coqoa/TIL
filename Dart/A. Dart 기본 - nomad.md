@@ -288,6 +288,103 @@ name?.isNotEmpty;
 --- 23.03.30
 
 ## 5. CLASSES
+- Your First Dart Class
+	```dart
+	class Player{
+		String name = 'coqoa';
+		final String name1 = '나병민1'; // final 키워드가 붙으면 변경불가
+		int xp = 1500;
 
+		void sayHello(){
+			print('Hi my name is $name');
+		}
+	}
 
+	void main(){
+		Player player = Player();
+		player.name = '나병민'; // 재할당
+		print(player.name); // 나병민
+		print(player.xp.toString()); // 1500
+		player.sayHello(); // Hi my name is 나병민
+	}
+	```
+
+- Constructors
+	```dart
+	class Player{
+		// Constructors
+		Player(this.name, this.xp); 
+		final String name; // final 필요, 나중에 값을 받으려면 late 붙여줌
+		final int xp;
+	}
+
+	void main(){
+		Player player1 = Player("나병민", 1500);
+		Player player2 = Player("coqoa", 100);
+		print(player1.name); // 나병민
+		print(player1.xp.toString()); // 1500
+		print(player2.name); // coqoa
+		print('${player2.xp}'); // 100
+	}
+	```
+- Named Constructor Parameters
+	```dart
+	class Player{
+		Player({
+			// Named Constructor Parameters
+			required this.name,
+			required this.xp, 
+			required this.team,
+		}); 
+		final String name;
+		final int xp;
+		final String team;
+	}
+
+	void main(){
+		Player player1 = Player(name:"나병민",xp: 1500, team:'blue');
+		Player player2 = Player(team:'red', name:"coqoa", xp:100);
+		print(player1.team); // blue
+		print(player2.team); //red
+	}
+	```
+- Named Constructors 
+	```dart
+	class Player{
+	// default constructor
+		Player({
+		// Named Constructor Parameters
+			required this.name,
+			required this.xp, 
+			required this.team,
+			required this.age,
+		}); 
 	
+	// named constructor
+	Player.createBluePlayer({required String name,required int age}) : 
+		this.name = name,
+		this.age = age,
+		this.team = 'blue',
+		this.xp = 0;
+	
+	Player.createRedPlayer({required String name,required int age}) : 
+		this.name = name,
+		this.age = age,
+		this.team = 'red',
+		this.xp = 0;
+	
+		final String name;
+		final int xp;
+		final String team;
+		final int age;
+	}
+
+	void main(){
+		Player player1 = Player.createBluePlayer(name:"나병민", age:32);
+		Player player2 = Player.createRedPlayer(name:"coqoa", age:40);
+		print(player1.team); // blue
+		print(player2.team); //red
+	}
+	```
+
+## 6. JSON 직렬화
