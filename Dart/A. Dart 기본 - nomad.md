@@ -388,3 +388,116 @@ name?.isNotEmpty;
 	```
 
 ## 6. JSON 직렬화
+- api로부터 json data를 받아서 class로 바꾸는 작업
+	```dart
+	class Player{
+		final String name;
+		final int xp;
+		final String team;
+		final int height;
+		final int weight;
+	
+		Player.fromJson(Map<String, dynamic> playerJson) :
+			name = playerJson['name'],
+			xp = playerJson['xp'],
+			team = playerJson['team'],
+			height = playerJson['hw']['height'],
+			weight = playerJson['hw']['weight'];
+		}
+
+		void main(){
+			// 더미데이터
+			var apiData = [
+			{
+			"name":"coqoa",
+			"xp":0,
+			"team":"blue",
+			"hw":{
+				"height":170,
+				"weight":70,
+			}
+			},
+			{
+			"name":"choibm0208",
+			"xp":0,
+			"team":"blue",
+			"hw":{
+				"height":180,
+				"weight":80,
+			}
+			},
+			{
+			"name":"qudals28",
+			"xp":0,
+			"team":"blue",
+			"hw":{
+				"height":160,
+				"weight":60,
+			}
+			},
+			
+		];
+	
+		apiData.forEach((playerJson){
+			var pl = Player.fromJson(playerJson);
+			print('${pl.name}, ${pl.height}, ${pl.weight}');
+			//  coqoa, 170, 70
+			//  choibm0208, 180, 80
+			//  qudals28, 160, 60
+		});
+	}
+	```
+
+## 7. Cascade Notation
+- 똑같은 코드를반복하는 대신 사용할 수 있음 
+	```dart
+	class Player{
+		String name;
+		int xp;
+		String team;
+	
+		Player({
+			required this.name, 
+			required this.xp, 
+			required this.team
+		});
+		
+		void sayHello(){
+			print('My name is $name');
+		}
+	}
+
+	void main(){
+		var coqoa = Player(name : 'coqoa', xp: 0, team:"red")
+		..sayHello() // My name is coqoa
+		..name = 'choibm0208'
+		..xp = 15000
+		..team = 'purple'
+		..sayHello(); //My name is choibm0208
+	}
+	```
+## 8. Enums
+- 선택의 폭을 좁혀 실수를 방지함
+	```dart
+	enum Team {red,blue,green}
+	// * Colors도 Enum이다 (ex. Colors.red, Colors.black ...)
+
+	class Player{
+		String name;
+		int xp;
+		Team team;
+	
+		Player({
+			required this.name, 
+			required this.xp, 
+			required this.team
+		});
+	}
+
+	void main(){
+		var coqoa = Player(name : 'coqoa', xp: 0, team: Team.red)
+		..name = 'choibm0208'
+		..xp = 15000
+		..team = Team.green;
+	}
+	```
